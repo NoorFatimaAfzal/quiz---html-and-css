@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Quiz App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #52d4e5;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .h1 {
+            text-align: center;
+            color: #333;
+            padding-bottom: 50px;
+        }
+        .login {
+            text-align: center;
+            padding-top: 10px;
+        }
+
+        .container {
+            border: 1px solid #d6f269;
+            background-color: #b8e368;
+            width: 50%;
+            margin: auto;
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: none;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>ECAT quiz app</h1>
+<div class="login">
+    <label for="text-input">Username:</label>
+    <input type="text" id="text-input" name="text-input"><br><br>
+
+    <label for="password-input">Password:</label>
+    <input type="password" id="password-input" name="password-input"><br><br>
+</div>
+    <div class="container">
+        Which one is not a branch of physical sciences?<br>
+        <input type="radio" name="question1" id="correct1">biology<br>
+        <input type="radio" name="question1">chemistry<br>
+        <input type="radio" name="question1">physics<br>
+        <input type="radio" name="question1">botany<br>
+        <button class="next" onclick="next(1)">next</button>
+    </div>
+    <div class="container">
+        Which branch of science plays an important role in the development of technology and engineering?<br>
+        <input type="radio" name="question2" id="correct2">physics<br>
+        <input type="radio" name="question2">chemistry<br>
+        <input type="radio" name="question2">mathematics<br>
+        <input type="radio" name="question2">history<br>
+        <button class="next" onclick="next(2)">next</button>
+    </div>
+    <div class="container">
+        1024 can be written in scientific notation as<br>
+        <input type="radio" name="question3" id="correct3">10 Raised to power 1 <br>
+        <input type="radio" name="question3">10 Raised to power 2<br>
+        <input type="radio" name="question3">10 Raised to power 3<br>
+        <input type="radio" name="question3">10 Raised to power 9<br>
+        <button class="next" onclick="next(3)">next</button>
+    </div>
+    <div class="container">
+        The uncertainty in a measurement may occur due to ?<br>
+        <input type="radio" name="question4">limitation of an instrument<br>
+        <input type="radio" name="question4">natural variation of the object to be measured<br>
+        <input type="radio" name="question4">inadequate of technique<br>
+        <input type="radio" name="question4" id="correct4">all 	given in a , b and c<br>
+        <button class="next" onclick="next(4)">next</button>
+    </div>
+    <div class="container">
+        Random errors can be reduced by ?<br>
+        <input type="radio" name="question5" >taking zero correction<br>
+        <input type="radio" name="question5">comparing the instrument with another more accurate one<br>
+        <input type="radio" name="question5" id="correct5">taking mean of several measurement<br>
+        <input type="radio" name="question5">all methods explained in a, b and c<br>
+        <button class="next" onclick="result()">submit Quiz</button>
+    </div>
+
+
+<script>
+document.getElementsByClassName('container')[0].style.display = 'block';
+function next(n){
+    document.getElementsByClassName('container')[n-1].style.display = 'none';
+    if (n < document.getElementsByClassName('container').length)
+        document.getElementsByClassName('container')[n].style.display = 'block';
+}
+function result(){
+    var correct = 0;
+    if(document.getElementById('correct1').checked){
+        correct++;
+    }
+    if(document.getElementById('correct2').checked){
+        correct++;
+    }
+    if(document.getElementById('correct3').checked){
+        correct++;
+    }
+    if(document.getElementById('correct4').checked){
+        correct++;
+    }
+    if(document.getElementById('correct5').checked){
+        correct++;
+    }
+    alert("The value of score is: " + correct);
+}
+</script>
+
+
+</body>
+</html>
